@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getLoggedInUser} from '../utils'
+import { getLoggedInUser } from '../utils';
 
 /*
   Предоставление данных
@@ -18,4 +18,15 @@ import {getLoggedInUser} from '../utils'
   const user = getLoggedInUser()
 */
 
-export const WithLoggedInUser = () => {}
+export const WithLoggedInUser = class extends Component {
+  state = {
+    user: getLoggedInUser()
+  };
+
+  render() {
+    const { user } = this.state;
+    const { children } = this.props;
+
+    return children(user);
+  }
+};
