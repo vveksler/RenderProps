@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getLoggedInUser } from '../utils';
 
 /*
   Render-props можно использовать для вынесения стейтфул логики
@@ -20,9 +19,9 @@ export const WithTooltip = class extends Component {
   };
 
   handleClick = () => {
-    this.setState({
-      tooltip: this.state.tooltip ? null : "Hello, i'm Tooltip"
-    });
+    this.setState(state => ({
+      tooltip: state.tooltip ? null : "Hello, i'm Tooltip"
+    }));
   };
 
   render() {
